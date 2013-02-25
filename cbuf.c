@@ -34,7 +34,7 @@ cbuf_init(cbuf_t *self, unsigned long order)
 
 	// mmap anonymous (twice the desired size)
 	self->addr = mmap(NULL, self->size << 1,
-			PROT_NONE, MAP_ANONYMOUS | MAP_PRIVATE, -1, 0);
+			PROT_NONE, MAP_ANON | MAP_PRIVATE, -1, 0);
 
 	if (self->addr == MAP_FAILED) {
 		perror("mmap");
